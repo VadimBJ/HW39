@@ -20,10 +20,8 @@ public class Drink extends Food {
     super(title);
   }
 
-  public void openDrink() {
-    if (alcohol) {
-
-
+  public void openDrink() throws IOException {
+    if (alcohol&&readAge()) {
       if (fizzy) {
         System.out.println("pshhhhhhh!");
       } else {
@@ -34,7 +32,7 @@ public class Drink extends Food {
 
   private static boolean readAge() throws IOException {
     System.out.print("Please enter your age: ");
-    return (readIntLimited(0, 150) < 18);
+    return (readIntLimited(0, 150) >= 18);
   }
 
   private static int readIntLimited(int min, int max) throws IOException {
