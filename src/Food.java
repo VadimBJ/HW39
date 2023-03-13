@@ -9,6 +9,7 @@ public class Food {
 
   public Food(String title) {
     this.title = title;
+    this.calories=0;
   }
 
   public void setCalories(double calories) {
