@@ -9,19 +9,23 @@ public class Drink extends Food {
 //  для газированного напитка печатает "пшш",
 //  для негазированного - "скр",
 //  а для алкогольного сначала спрашивает возраст и издаёт звук, только если возраст больше 18.
-  boolean fizzy;
-  boolean alcohol;
+  private boolean fizzy;
+  private boolean alcohol;
 
-  public Drink(String title, double calories) {
+  public Drink(String title, double calories, boolean fizzy, boolean alcohol) {
     super(title, calories);
-  }
-
-  public Drink(String title) {
-    super(title);
+    this.fizzy = fizzy;
+    this.alcohol = alcohol;
   }
 
   public void openDrink() throws IOException {
-    if (alcohol&&readAge()) {
+    if (!alcohol){
+      if (fizzy) {
+        System.out.println("pshhhhhhh!");
+      } else {
+        System.out.println("skrr");
+      }
+    } else if (readAge()) {
       if (fizzy) {
         System.out.println("pshhhhhhh!");
       } else {
