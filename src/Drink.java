@@ -3,34 +3,31 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Drink extends Food {
-  //  поле "газированный" (да/нет)
-//  поле "алкогольный" (да/нет)
-//  метод "открыть", который:
-//  для газированного напитка печатает "пшш",
-//  для негазированного - "скр",
-//  а для алкогольного сначала спрашивает возраст и издаёт звук, только если возраст больше 18.
-  private boolean fizzy;
-  private boolean alcohol;
 
-  public Drink(String title, double calories, boolean fizzy, boolean alcohol) {
+  private boolean isCarbonated;
+  private boolean isAlcoholic;
+
+  public Drink(String title, double calories, boolean isCarbonated, boolean isAlcoholic) {
     super(title, calories);
-    this.fizzy = fizzy;
-    this.alcohol = alcohol;
+    this.isCarbonated = isCarbonated;
+    this.isAlcoholic = isAlcoholic;
   }
 
   public void openDrink() throws IOException {
-    if (!alcohol){
-      if (fizzy) {
+    if (!isAlcoholic){
+      if (isCarbonated) {
         System.out.println("pshhhhhhh!");
       } else {
         System.out.println("skrr");
       }
     } else if (readAge()) {
-      if (fizzy) {
+      if (isCarbonated) {
         System.out.println("pshhhhhhh!");
       } else {
         System.out.println("skrr");
       }
+    } else {
+      System.out.println("You are too young to be drinking alcoholic beverages!");
     }
   }
 
