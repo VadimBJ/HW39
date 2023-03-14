@@ -27,7 +27,7 @@ public class Food {
   public void eatFood(){
     System.out.printf("You just ate %s%n",title);
     if (calories!=0){
-      System.out.printf("With a calorie count of %.2f calories%n",calories);
+      System.out.printf("With a %.2f calories%n",calories);
     }
   }
 }
